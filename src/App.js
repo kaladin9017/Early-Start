@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import SampleComponent from "./SampleComponent";
-
 class App extends Component {
   render() {
     return (
@@ -12,7 +10,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>C4Q Hackathon</h2>
         </div>
-        <SampleComponent />
+        {this.props.children}
       </div>
     );
   }
