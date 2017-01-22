@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import axios from 'axios';
+import {getDistrict} from './actions/index';
+
 
 const mapState = state => ({
     data : state.test.data
@@ -14,6 +15,7 @@ class SampleComponent extends Component {
         return (
             <div>
                 Data from Redux: {data}
+                <button onClick={getDistrict.bind(this, "11207")}>District</button>
             </div>
         );
     }
