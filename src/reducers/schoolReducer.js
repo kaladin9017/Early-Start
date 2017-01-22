@@ -10,3 +10,4 @@ export default function testReducer(state = {}, action) {
   }
     return state;
 }
+//samplecomponent handleClick must happen, zipcode enter, then populate reducer. 
