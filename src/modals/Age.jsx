@@ -2,28 +2,27 @@ import React from 'react';
 
 const Age = React.createClass({
 	getInitialState: function(){
-		return{ageRange: null}
+		return{grade: null}
 	},
 	selectedAge: function(event){
-		this.setState({ageRange: event.target.value})
+		this.setState({grade: event.target.value})
 	},
 	render: function(){
 		return(
-			<div className="container" >
+			<div className="outer-container" >
 
-			<div>
+			<div className="inner-container" >
 				<img className="Age" src={require("../../public/images/clipboardText.png")} />
-			</div>
 
-			<div id="form-container">
-				<form className="ageForm">
-					<select value={this.state.ageRange} onChange={this.selectedAge}>
-						<option value="3-5">3-5</option>
-						<option value="5-10">5-10</option>
-						<option value="10-13">10-13</option>
-					</select>
-				</form>
-			</div>
+			<form className="ageForm">
+				<select className="selection" value={this.state.ageRange} onChange={this.selectedAge}>
+					<option value="00">3-5</option>
+					<option value="01">5-10</option>
+					<option value="06">10-13</option>
+				</select>
+			</form>
+
+			</div>			
 
 			</div>
 			
