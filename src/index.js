@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import {Router, Route, browserHistory, IndexRoute} from "react-router";
 
-import '../scss/index.scss';
 import "semantic-ui-css/semantic.css";
 import 'gsap'
 
