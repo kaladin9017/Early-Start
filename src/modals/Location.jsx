@@ -1,21 +1,55 @@
 import React from 'react';
-import Age from './Age';
+import {addAddress, addCity, addZipcode, getSchooldata} from '../actions/userActions';
+import {connect} from 'react-redux';
+import {bindActionCreator} from 'redux';
+
+import {getSchools, getDistrict, getSchoolGrade, getAttendance, getMathScores, getEnglishScores} from '../actions/index'
 
 const Location = React.createClass({
-	getInitialState: function(){
-		return {grade: '', zipCode: 0, city: '', address: ''}
-	},
-	findSchools: function(){
+	
+	// findSchools: function(event){
 
-	},
+
+	// },
 	handleChange: function(input, event){
 		if(input === 'address'){
-			this.setState({address: event.target.value})
+			addAddress(event.target.value)
 		} else if (input === 'city'){
-			this.setState({city: event.target.value})
+			addCity(event.target.value)
 		} else if (input === 'zipCode'){
-			this.setState({zipCode: event.target.value})
+			addZipcode(event.target.value)
 		}
+	},
+	handleClick() {
+		getSchooldata(this.getCurrentState())
+	},
+	getCurrentState(e) {
+		console.log(1)
+		  Promise.resolve(getDistrict("11201"))
+		  .then((temp)=> {
+		    this.setState({district: temp.data });
+		  });
+
+		  Promise.resolve(getSchoolGrade('1'))
+		  .then((temp)=> {
+		    this.setState({grades: temp.data });
+		  });
+
+		  Promise.resolve(getAttendance())
+		  .then((temp)=> {
+		    this.setState({attendance: temp.data });
+		  });
+
+		  Promise.resolve(getMathScores())
+		  .then((temp)=> {
+		    this.setState({math: temp.data });
+		  });
+
+		  Promise.resolve(getEnglishScores())
+		  .then((temp)=> {
+		    this.setState({english: temp.data });
+		  });
+
 	},
 	render:function(){
 		return(
@@ -45,4 +79,12 @@ const Location = React.createClass({
 	}
 })
 
-export default Location;
+function mapDispatchToProps(dispatch){
+	return bindActionCreator({addAddress, addCity, addZipcode, getSchooldata}, dispatch)
+}
+
+function mapState (state) {
+	return {users: state.users}
+} 
+
+export default connect(mapState, mapDispatchToProps) (Location);

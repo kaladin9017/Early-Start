@@ -1,11 +1,11 @@
 import React from 'react';
+import {addAge} from '../actions/userActions';
+import {connect} from 'react-redux';
 
 const Age = React.createClass({
-	getInitialState: function(){
-		return{grade: null}
-	},
 	selectedAge: function(event){
-		this.setState({grade: event.target.value})
+		addAge(event.target.value)
+		console.log(event.target.value)
 	},
 	render: function(){
 		return(
@@ -15,7 +15,7 @@ const Age = React.createClass({
 				<img className="Age" src={require("../../public/images/clipboardText.png")} />
 
 			<form className="ageForm">
-				<select className="selection" value={this.state.ageRange} onChange={this.selectedAge}>
+				<select className="selection"  onChange={this.selectedAge}>
 					<option value="00">3-5</option>
 					<option value="01">5-10</option>
 					<option value="06">10-13</option>
@@ -28,6 +28,10 @@ const Age = React.createClass({
 			
 		)
 	}
-})
+});
 
-export default Age;
+// function mapDispatchToProps(dispatch) {
+// 	return bindActionCreator({addAge}, dispatch)
+// }
+
+export default connect(null, {addAge})(Age);
