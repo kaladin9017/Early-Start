@@ -34,7 +34,7 @@ const hideWelcome = ({target}) => {
 
   const tlPromise = new Promise(() => {
     tl.to(welcome, 1.2, {scale: .2, opacity: 0, ease: Power0.easeOut})
-    .add('start')
+      .add('start')
       .to(boy, 2.5, {backgroundPosition: "-1280px 0px", ease:SteppedEase.config(8), repeat: -1, repeatDelay:-.5}, "start -=1")
       .to(buildings, 7, {backgroundPositionX: 150, ease: Power0.easeOut}, "start -=1")
       .from(age, .75, {scale: .2, opacity:0, ease:  Elastic.easeOut.config(1, 1), y: 500, onComplete: () => stopAnimation(tl) }, 1.5)

@@ -11,8 +11,6 @@ const Welcome = React.createClass({
     return(
       <div className="welcome">
 
-        <img src="/images/chalkboardText.png" useMap="#image-map" />
-
         <map name="image-map" id="image-map">
             <area target="_self" alt="Parent" title="Parent" coords="147,297,285,343" shape="rect" onClick={this.goToAge}/>
 

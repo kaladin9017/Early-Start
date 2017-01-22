@@ -59,17 +59,28 @@ body {
 
 
 .welcome {
+  background: url('../public/images/chalkboard.png') no-repeat;
+  background-size: cover;
   width: 550px;
-  height: auto;
+  height: 500px;
   position: absolute;
   top: 25vh;
   left: 30vw;
   transform: translate(50, 50);
+
 }
+
 
 .welcome img {
   width: 100%;
 }
+
+.ageForm {
+  position: absolute;
+  margin-left: 43%;
+  margin-top: 27%;
+}
+
 
 .age {
   width: 425px;
@@ -119,3 +130,37 @@ body {
   width: 141px;
   height: 300px;
 }
+
+/*COMPARE PAGE*/
+.gmaps{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.flex-grid{
+  padding-left: 90px;
+  padding-right: 90px;
+  /*display: -webkit-flex;*/
+  /*display: flex;*/
+  /*-webkit-flex-direction: row;
+  flex-direction: row;*/
+}
+ 
+/*.column{*/
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*flex-wrap: nowrap;*/
+/*
+  background-color: skyblue;
+  flex: 0 0 100%;
+  padding: 10px;
+  margin-left: 10px;*/
+  /*flex-basis: 100%;*/
+  /*width: 33%;*/
+/*}*/
+
+/*.topresults{
+  display: flex;
+  flex-direction: column;
+}*/
