@@ -10,6 +10,7 @@ import App from './App';
 import SampleComponent from './SampleComponent';
 import Compare from './components/compare'
 import Welcome from './modals/Welcome';
+import Age from './modals/Age';
 
 
 import configureStore from "./store/configureStore";
@@ -18,7 +19,8 @@ const store = configureStore();
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
-        	<Route path='/' component={Welcome}>
+        	<Route path='/' component={Age}>
+
 
         	</Route>
         </Router>
