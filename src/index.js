@@ -9,6 +9,7 @@ import "semantic-ui-css/semantic.css";
 import App from './App';
 import SampleComponent from './SampleComponent';
 import Compare from './components/compare'
+import Results from './components/results'
 
 
 import configureStore from "./store/configureStore";
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Router history={browserHistory}>
         	<Route path='/' component={App}>
 	        	<IndexRoute component={SampleComponent} />
+	        	<Route path='/results' component={Compare} />
 	        	<Route path='/compare' component={Compare} />
         	</Route>
         </Router>

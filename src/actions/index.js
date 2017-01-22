@@ -77,12 +77,6 @@ export function getSchools(data) {
 
   }
 
-  console.log(data, 'object')
-  // console.log(tempDbnArr)
-  console.log(finalObj, "grades")
-  //
-  // console.log(data, 'all data')
-
   return {
     type: GET_SCHOOLS,
     payload: finalObj

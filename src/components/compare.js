@@ -5,22 +5,60 @@ import {Segment, Header, List, Button} from 'semantic-ui-react';
 import '../App.css';
 import {connect} from "react-redux";
 
-import getSchools from '../actions/index'; 
+import {getSchools, getDistrict, getSchoolGrade, getAttendance, getMathScores, getEnglishScores} from '../actions/index'
 
 const mapState = state => ({
     schools: state.schools
 });
 
+// Binds Actions
+// const mapDispatch(dispatch) {
+// 	return bindActionCreator({getSchools, sfsdffd, sfds ssmfs}, dispatch)
+// }
+
 
 const Compare = React.createClass({
-	componentDidMount(){
-		
-		console.log(this.state.)
+	componentWillMount(){
+		this.getCurrentState()
 	},
 	onMapCreated(map) {
 		//Creates Google map display. 
 	},
+	handleClick() {
+		this.props.getSchools(this.state)
+		console.log(this.props.schools)
+	},
+	getCurrentState() {
+		let schoolGradeArr = []
+		console.log(1)
+		  Promise.resolve(getDistrict("11201"))
+		  .then((temp)=> {
+		    this.setState({district: temp.data });
+		  });
+
+		  Promise.resolve(getSchoolGrade('1'))
+		  .then((temp)=> {
+		    this.setState({grades: temp.data });
+		  });
+
+		  Promise.resolve(getAttendance('1'))
+		  .then((temp)=> {
+		    this.setState({attendance: temp.data });
+		  });
+
+		  Promise.resolve(getMathScores('1'))
+		  .then((temp)=> {
+		    this.setState({math: temp.data });
+		  });
+
+		  Promise.resolve(getEnglishScores('1'))
+		  .then((temp)=> {
+		    this.setState({english: temp.data });
+		  });
+
+	},
 	render() {
+		
 	// <InfoWindow
       // lat={40.741483}
       // lng={-73.933395}
@@ -104,13 +142,14 @@ const Compare = React.createClass({
 			      </Segment>
 		      </Segment.Group>
 			</div>
-			<Button inverted color='orange'>Print</Button>
+			<Button inverted color='orange' onClick={this.handleClick}>Print</Button>
 	  </div>
 	);
 	}
 });
 
-export default connect(mapState)(Compare);
+export default connect(mapState, {getSchools})(Compare);
+//second prop is automatically dispatch. 
 		      
 
 
