@@ -8,8 +8,11 @@ import 'gsap'
 
 import App from './App';
 import SampleComponent from './SampleComponent';
-import Compare from './components/compare';
+
+import Compare from './components/compare'
+import Welcome from './modals/Welcome';
 import Home from './components/Home'
+
 
 
 import configureStore from "./store/configureStore";
