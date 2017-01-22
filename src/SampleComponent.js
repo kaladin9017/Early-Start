@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {getDistrict} from './actions/index';
+import {getDistrict, getSchoolGrade, getAttendance, getMathScores, getEnglishScores, getSchools} from './actions/index';
 
 
 const mapState = state => ({
@@ -9,13 +9,23 @@ const mapState = state => ({
 });
 
 class SampleComponent extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {};
+  }
+
+  handleFinalClick() {
+    getSchools(this.state)
+  }
     render() {
+      if(this.state.district && this.state.attendance && this.state.math && this.state.english && this.state.grades && this.state.district) {
+        this.handleFinalClick()
+      }
         const {data} = this.props;
 
         return (
             <div>
                 Data from Redux: {data}
-                <button onClick={getDistrict.bind(this, "11207")}>District</button>
             </div>
         );
     }
