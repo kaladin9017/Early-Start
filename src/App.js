@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
+    const {sample, home, children} = this.props;
     return (
       <div className="App">
-        {this.props.children}
+        <div className="logo">
+          <img role="presentation" src="images/logo-mock copy.png" />
+        </div>
+        {sample}
+        {home}
+        {children}
       </div>
     );
   }
