@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Chalkduster';
+  src:  url('../public/fonts/Chalkduster.ttf') format('ttf')}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -30,7 +35,6 @@ body {
   background-size: cover;
   width: inherit;
   height: 100vh;
-  border: 1px solid red;
   position: absolute;
   bottom: 0;
   
@@ -53,27 +57,65 @@ body {
   to {background-position: -1282px}
 }
 
-.Age {
-  width: 45%;
-  padding-left: auto;
-  padding-right: auto;
-  padding-top: auto;
-  position: absolute;
-}
-
-.ageForm {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 250px;
-  margin-bottom: 250px;
-}
 
 .welcome {
-  background: green;
-  width: 200px;
-  height: 100px;
+  width: 550px;
+  height: auto;
   position: absolute;
-  top: 50vh;
+  top: 25vh;
+  left: 30vw;
+  transform: translate(50, 50);
+}
+
+.welcome img {
+  width: 100%;
+}
+
+.age {
+  width: 425px;
+  height: 600px;
+  position: absolute;
+  background: url('../public/images/clipboardText.png') no-repeat;
+  background-size: 100%;
+  top: 15vh;
   left: 40vw;
-  transform: translate(50);
+  transform: translate(50, 50);
+  font: 24px 'Chalkduster';
+}
+
+
+.ageForm {
+  position: relative;
+  top: 40%;
+  left: 30%;
+  width: 50%;
+  border: 1px solid green;
+  transform: rotate(8deg);
+  border: none;
+  text-align: center;
+
+}
+
+.ageForm option{
+  transform: rotate(8deg);
+}
+
+.ageButton {
+  position: absolute;
+  bottom: 40%;
+  left: 40%;
+  transform: rotate(8deg);
+  border: none;
+  background-color: lightblue;
+  border-radius: 15px;
+  width: 25%;
+}
+
+.tree1 {
+  background: url('../public/images/tree1.png') no-repeat;
+  position: absolute;
+  bottom: 25px;
+  left: 625px;
+  width: 141px;
+  height: 300px;
 }
