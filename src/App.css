@@ -1,26 +1,56 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.logo {
+  position: fixed;
+  z-index: 100000000;
+}
+.home {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.sky {
+  background: url('../public/images/sky.jpg');
+  background-size: cover;
+  width: inherit;
+  height: inherit;
+  top: 0;
+  left: 0;
+  background-repeat: repeat-x;
+  z-index: -1;
 }
 
-.App-intro {
-  font-size: large;
+.buildings {
+  background: url('../public/images/buildingsONLY.png') no-repeat;
+  background-size: cover;
+  width: inherit;
+  height: 100vh;
+  border: 1px solid red;
+  position: absolute;
+  bottom: 0;
+  
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+.spirte {
+  background: url('../public/images/early_start_spirte.png') no-repeat;
+  background-size: cover;
+  width: 160px;
+  height: 255px;
+  /*animation: walk-east 2.0s steps(8) infinite;*/
+  position: absolute;
+  bottom: 5px;
+  left: 110px;
+}
+
+@keyframes walk-east {
+  from {background-position: 0px}
+  to {background-position: -1282px}
 }
 
 .Age {
@@ -38,4 +68,12 @@
   margin-bottom: 250px;
 }
 
-
+.welcome {
+  background: green;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  top: 50vh;
+  left: 40vw;
+  transform: translate(50);
+}
