@@ -1,6 +1,6 @@
 import GET_SCHOOLS from '../actions';
 
-export default function testReducer(state = {}, action) {
+export default function getSchools(state = {}, action) {
   switch (action.type) {
     case GET_SCHOOLS:
       return action.payload
