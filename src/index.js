@@ -11,6 +11,7 @@ import SampleComponent from './SampleComponent';
 import Compare from './components/compare'
 import Welcome from './modals/Welcome';
 import Age from './modals/Age';
+import Location from './modals/Location';
 
 
 import configureStore from "./store/configureStore";
