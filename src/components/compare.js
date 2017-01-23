@@ -1,7 +1,7 @@
 //LIBRARIES
 import React from 'react';
 import {connect} from "react-redux";
-import {Gmaps, Marker} from 'react-gmaps';
+import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 import _ from 'lodash';
 
 import AfterSchoolIcon from './icons/AfterSchoolIcon';
@@ -22,8 +22,11 @@ const Compare = React.createClass({
 		//Creates Google map display.
 	},
 	render() {
+		// console.log('USER STATE======>', this.props.users )
 		console.log('RESULT STATE======>', this.props.threeSchools )
-		console.log('RESULT STATE======>', this.props )
+		console.log('RESULT LAT======>', this.props.threeSchools.threeSchools[0].val.latitude )
+		console.log('RESULT LNG======>', this.props.threeSchools.threeSchools[0].val.longitude )
+		// console.log('RESULT STATE======>', this.props )
 	// <InfoWindow
       // lat={40.741483}
       // lng={-73.933395}
@@ -52,20 +55,26 @@ const Compare = React.createClass({
 	  	<div className='gmaps'>
 	      <Gmaps
 	        width={'1300px'}
-	        height={'300px'}
-	        lat={40.741992}
-	        lng={-73.927947}
-	        zoom={15}
+	        height={'425px'}
+	        lat={40.702552}
+	        lng={-73.984016}
+	        zoom={12}
 	        onMapCreated={this.onMapCreated}>
-		        <Marker
-		          lat={40.741483}
-		          lng={-73.933395}
-		          radius={500}
-		          onClick={this.onClick} />
+	        <InfoWindow
+		      lat={40.702552}
+		      lng={-73.984016}
+		      content={'Home'}
+		      onCloseClick={this.onCloseClick} />
 
 				<Marker
-					lat={40.742387}
-					lng={ -73.935386}/>
+					lat={this.props.threeSchools.threeSchools[0].val.latitude}
+					lng={this.props.threeSchools.threeSchools[0].val.longitude}/>
+				<Marker
+					lat={this.props.threeSchools.threeSchools[1].val.latitude}
+					lng={this.props.threeSchools.threeSchools[1].val.longitude}/>
+				<Marker
+					lat={this.props.threeSchools.threeSchools[2].val.latitude}
+					lng={this.props.threeSchools.threeSchools[2].val.longitude}/>
 			</Gmaps>
 	      </div>
 	      <center>
