@@ -12,6 +12,7 @@ body {
 .logo {
   position: fixed;
   z-index: 100000000;
+  display: none;
 }
 .home {
   width: 100vw;
