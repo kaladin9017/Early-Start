@@ -156,6 +156,7 @@ body {
   height: 300px;
 }
 
+<<<<<<< HEAD
 .location {
   position: absolute;
   top: 30vh;
@@ -176,6 +177,11 @@ body {
   height: 280px;
   right: 10vw;
   bottom: 10px;
+=======
+/*-------------------------RESULT PAGE----------------------*/
+.compare-button{
+  margin-top: 10px;
+>>>>>>> a9497d0d35363ae8671411a42027fcce2cc4a4b9
 }
 /*-------------------------COMPARE PAGE----------------------*/
 .gmaps{

@@ -2,6 +2,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {Gmaps, Marker} from 'react-gmaps';
+import _ from 'lodash';
 
 //STYLING
 import {Segment, Header, List, Button} from 'semantic-ui-react';
@@ -9,7 +10,8 @@ import '../App.css';
 
 //STATE
 const mapState = state => ({
-    users: state.users
+    users: state.users,
+    threeSchools: state.threeSchools
 });
 
 
@@ -18,25 +20,31 @@ const Compare = React.createClass({
 		//Creates Google map display. 
 	},
 	render() {	
+		console.log('RESULT STATE======>', this.props.threeSchools )
+		console.log('RESULT STATE======>', this.props )
 	// <InfoWindow
       // lat={40.741483}
       // lng={-73.933395}
       // content={'Home'}
       // onCloseClick={this.onCloseClick} />
-		const array = [{hello: 'world'}, {hello: 'world'}, {hello: 'world'}]
-		let displayResults = array.map((val, idx)=>{
-			return (
-				<div key={idx} className='column'>
-					<h4 key={idx + '0'}>Name</h4>
-					<p key={idx + '1'}>Address</p>
-					<p key={idx + '2'}>Phone Number</p>
-					<p key={idx + '3'}>Math Score</p>
-					<p key={idx + '4'}>English Score</p>
-					<p key={idx + '5'}>Attendance</p>
-					<p key={idx + '6'}>Distance?</p>
-				</div>
-			)
-		})
+
+		// let displayResults = this.props.threeSchools.map((val, idx)=>{
+		// 	return (
+		// 		<Segment color='orange'>
+		// 	      	 <Header as='h5' attached='top'>
+		//  				School Three 
+		// 			</Header>
+		// 			<List>
+		// 			    <List.Item>Address</List.Item>
+		// 			    <List.Item>Phone Number</List.Item>
+		// 			    <List.Item>Math Score</List.Item>
+		// 			    <List.Item>English Score</List.Item>
+		// 			    <List.Item>Attendance</List.Item>
+		// 			    <List.Item>Distance?</List.Item>
+		// 			  </List>
+		// 	      </Segment>
+		// 	)
+		// })
 	return (
 	  <div>
 	  	<div className='gmaps'>
@@ -60,45 +68,29 @@ const Compare = React.createClass({
 	      </div>
 			<div className="flex-grid">
 				<Segment.Group horizontal>
-			    <Segment color='orange'>
-			      	 <Header as='h5' attached='top'>
-		 				School One 
-					</Header>
-					<List>
-					    <List.Item>Address</List.Item>
-					    <List.Item>Phone Number</List.Item>
-					    <List.Item>Math Score</List.Item>
-					    <List.Item>English Score</List.Item>
-					    <List.Item>Attendance</List.Item>
-					    <List.Item>Distance?</List.Item>
-					  </List>
-			      </Segment>
-			      <Segment color='orange'>
-			      	 <Header as='h5' attached='top'>
-		 				School Two
-					</Header>
-					<List>
-					    <List.Item>Address</List.Item>
-					    <List.Item>Phone Number</List.Item>
-					    <List.Item>Math Score</List.Item>
-					    <List.Item>English Score</List.Item>
-					    <List.Item>Attendance</List.Item>
-					    <List.Item>Distance?</List.Item>
-					  </List>
-			      </Segment>
-			      <Segment color='orange'>
-			      	 <Header as='h5' attached='top'>
-		 				School Three 
-					</Header>
-					<List>
-					    <List.Item>Address</List.Item>
-					    <List.Item>Phone Number</List.Item>
-					    <List.Item>Math Score</List.Item>
-					    <List.Item>English Score</List.Item>
-					    <List.Item>Attendance</List.Item>
-					    <List.Item>Distance?</List.Item>
-					  </List>
-			      </Segment>
+				{!this.props.threeSchools ?	null :
+
+			(this.props.threeSchools.threeSchools.map((school, idx)=>{
+						return (
+							<Segment color='orange'>
+						      	 <Header as='h5' attached='top'>
+					 				{school.val.location_name}
+								</Header>
+								<List>
+								     <List.Item>Address</List.Item>
+										<List.Item>{school.val.primary_address}</List.Item>
+										<List.Item>Principal Email</List.Item>
+										<List.Item>{school.val.principal_email}</List.Item>
+										<List.Item>Math Score</List.Item>
+										<List.Item>{school.val.math.mean_scale_score}</List.Item>
+										<List.Item>English Score</List.Item>
+										<List.Item>{school.val.english.mean_scale_score}</List.Item>
+										<List.Item>Attendance</List.Item>
+										<List.Item>{school.val.attendance._of_attd_taken+'%'}</List.Item>
+								  </List>
+						      </Segment>
+						)
+					})) }
 		      </Segment.Group>
 			</div>
 			<Button inverted color='orange' onClick={this.handleClick}>Print</Button>
@@ -114,7 +106,7 @@ const Compare = React.createClass({
 export default connect(mapState)(Compare);
 //second prop is automatically dispatch. 
 		      
-
+  
 
 
 
