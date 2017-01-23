@@ -15,7 +15,7 @@ import "semantic-ui-css/semantic.css";
 //COMPONENT IMPORTS
 import App from './App';
 import Home from './components/Home'
-import SampleComponent from './SampleComponent';
+// import SampleComponent from './SampleComponent';
 import Results from './components/results'
 import Compare from './components/compare'
 
