@@ -31,8 +31,9 @@ ReactDOM.render(
         	<Route path='/' component={App}>
 	        	<IndexRoute component={Home} />
                 <Route path='/TEST' component={Location} />
-	        	<Route path='/results' component={Results} />
-	        	<Route path='/compare' component={Compare} />
+                <Route path='/icons' component={Location} />
+	        	<Route path='/results/$query?zip+code' component={Results} />
+	        	<Route path='/compare/' component={Compare} />
         	</Route>
         </Router>
     </Provider>,
