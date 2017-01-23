@@ -20,6 +20,7 @@ const Compare = React.createClass({
 		//Creates Google map display. 
 	},
 	render() {	
+		// console.log('USER STATE======>', this.props.users )
 		console.log('RESULT STATE======>', this.props.threeSchools )
 		console.log('RESULT STATE======>', this.props )
 	// <InfoWindow
