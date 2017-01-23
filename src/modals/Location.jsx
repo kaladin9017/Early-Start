@@ -68,7 +68,7 @@ const Location = React.createClass({
 			// })
 			// .then((state)=>{
 			// 	this.props.getSchools(state, '05')
-			// })
+			// }) <=== TRIED CREATING PROMISE, DID NOT WORK. 
 		}
 	},
 	getCurrentState(zip) {
