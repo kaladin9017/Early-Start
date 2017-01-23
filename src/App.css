@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(242, 250, 253) 
 }
 
 .logo {
@@ -32,7 +33,6 @@ body {
   height: inherit;
   top: 0;
   left: 0;
-  background-repeat: repeat-x;
   z-index: -1;
 }
 
@@ -56,6 +56,13 @@ body {
   position: absolute;
   bottom: 5px;
   left: 110px;
+  z-index:50;
+}
+
+.boyResult {
+  position: fixed;
+  bottom: 0px;
+  z-index:50;
 }
 
 @keyframes walk-east {
@@ -156,7 +163,6 @@ body {
   height: 300px;
 }
 
-<<<<<<< HEAD
 .location {
   position: absolute;
   top: 30vh;
@@ -177,12 +183,111 @@ body {
   height: 280px;
   right: 10vw;
   bottom: 10px;
-=======
+}
 /*-------------------------RESULT PAGE----------------------*/
 .compare-button{
   margin-top: 10px;
->>>>>>> a9497d0d35363ae8671411a42027fcce2cc4a4b9
 }
+
+.resultPage {
+  width: 100vw;
+  height: 100vh;
+}
+
+.resultPage h1 {
+  color: blue;
+  font: 36px 'Chalkduster';
+  position: absolute;
+  top: 5vh;
+  left: 50vw;
+  width: 35vw;
+  text-align: center;
+}
+
+.results {
+  position: absolute;
+  top: 18vh;
+  left: 15vw;
+  width: 80vw;
+  font-size: 18px;
+}
+
+.result {
+  display: flex;
+  padding: 2vw;
+
+}
+
+.result .mini_map {
+  border: 3px solid blue;
+  width: 155px;
+  height: 155px;
+}
+
+.result .schoolInfo {
+  margin-left: 3%;
+  width: 80%;
+  display: flex;
+  align-content: center;
+}
+
+.result ul {
+  margin:0;
+  padding: 0;
+}
+
+.result li{
+  list-style: none;
+  padding: 1vh;
+}
+
+.result a{
+  color: black;
+}
+
+.result a:hover {
+  color: blue;
+}
+
+.result .info {
+  border-right: 1px solid black;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result .schoolName{
+  font: 24px 'Chalkduster';
+}
+
+.result .skills{
+  width: 25%;
+  padding-left: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.checkOuter{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+
+input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+
+
+
+
 /*-------------------------COMPARE PAGE----------------------*/
 .gmaps{
 /*  display: flex;*/
