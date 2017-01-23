@@ -21,7 +21,7 @@ const Results = React.createClass({
 		const array = [{hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'},{hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}]
 		let displayResults = array.map((val, idx)=>{
 			return (
-				<Grid>
+				<Grid key={idx}>
 					<Grid.Column width={3}>
 						<Gmaps
 							width={'150px'}
