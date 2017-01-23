@@ -54,10 +54,10 @@ const Compare = React.createClass({
 	  <div>
 	  	<div className='gmaps'>
 	      <Gmaps
-	        width={'1300px'}
+	        width={'1500px'}
 	        height={'425px'}
-	        lat={40.702552}
-	        lng={-73.984016}
+	        lat={40.663603}
+	        lng={-73.891916}
 	        zoom={12}
 	        onMapCreated={this.onMapCreated}>
 	        <InfoWindow
@@ -116,7 +116,7 @@ const Compare = React.createClass({
 									</List.Item>
 									<List.Item>
                     <Popup
-                      trigger={<List.Icon circular name='heart' />}
+                      trigger={<List.Icon circular name='rocket' />}
                       flowing
                       hoverable
                       >

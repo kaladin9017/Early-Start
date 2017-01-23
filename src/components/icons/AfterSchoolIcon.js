@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon, Popup, Segment, Button, Divider, Card, Image } from 'semantic-ui-react';
 const tempObj = {
  name: "Gary Klinsky Children's Centers (GKCC)",
- description: "Gary Klinsky Children's Centers (GKCC)  provides after-school learning opportunities on lessons in history, sociology, ecology, science, geography and technology, plus focused explorations into special-interest subjects including journalism, photography, poetry, entrepreneurship.",
+ description: "Gary Klinsky Children's Centers (GKCC)  provides after-school learning opportunities on lessons in history, sociology, ecology, science, geography and technology, plus focused explorations into special-interest subjects including journalism, photography,poetry, entrepreneurship.",
  website_url: "http://www.wearebcs.org/bcs/what_we_do/children_full_potential/gkcc:en-us.html",
  free_or_reduced: "reduced_cost",
  distance: 0.63,
@@ -19,7 +19,7 @@ const AfterSchoolIcon = () => {
       <Card.Content>
         <Image floated='right' size='large' src={tempObj.images} />
         <Card.Header>
-          Available After School Activities 
+          Available After School Activities
         </Card.Header>
         <Card.Meta>
           {tempObj.name}

@@ -42,7 +42,7 @@ const hideWelcome = (utils, app) => {
   const age = target.find({className: "age"})
   const location = target.find({className: "location"})
   const bus = target.find({className: "bus"})
-  const tree1 = target.find({className: "tree1"})
+  // const tree1 = target.find({className: "tree1"})
 
   const tl = new TimelineMax({paused:true});
 
@@ -52,7 +52,7 @@ const hideWelcome = (utils, app) => {
       .to(boy, 2.5, {backgroundPosition: "-1280px 0px", ease:SteppedEase.config(8), repeat: -1, repeatDelay:-.5}, "start -=1")
       .add("start")
       .to(buildings, 7, {backgroundPositionX: 150, ease: Power0.easeOut}, "start -=1")
-      .fromTo(tree1, .5, {bottom: 795, ease: Bounce.easeOut,}, {bottom: 25, ease: Bounce.easeOut, },"start")
+      // .fromTo(tree1, .5, {bottom: 795, ease: Bounce.easeOut,}, {bottom: 25, ease: Bounce.easeOut, },"start")
       .from(age, .75, {scale: .2, opacity:0, ease:  Elastic.easeOut.config(1, 1), y: 100, repeat:1, yoyo:true}, "start +=.4")
       .addPause(2.3)
       .from(location, .75, {scale: .2, opacity:0, ease:  Elastic.easeOut.config(1, 1), y: 100, repeat:1, yoyo:true}, "start +=3")
@@ -84,7 +84,6 @@ class Home extends React.Component {
         <div className="sky"></div>
         <div className="buildings"></div>
         <div className="spirte"></div>
-        <div className="tree1"></div>
         <div className="bus"></div>
         <Welcome className="welcome" parent={this}/>
         <Age className="age" parent={this}/>
