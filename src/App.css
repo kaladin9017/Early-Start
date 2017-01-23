@@ -298,35 +298,25 @@ input[type="checkbox"] {
 
 
 /*-------------------------COMPARE PAGE----------------------*/
-.gmaps{
-/*  display: flex;*/
-/*  justify-content: left;*/
-/*  margin-top: 100px;*/
+
+.street {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid black;
 }
 
-.flex-grid{
-  padding-left: 90px;
-  padding-right: 90px;
-  /*display: -webkit-flex;*/
-  /*display: flex;*/
-  /*-webkit-flex-direction: row;
-  flex-direction: row;*/
+.half {
+  width: 50%;
+  border: none;
+  border-bottom: 2px solid black;
 }
- 
-/*.column{*/
-  /*display: flex;*/
-  /*flex-direction: row;*/
-  /*flex-wrap: nowrap;*/
-/*
-  background-color: skyblue;
-  flex: 0 0 100%;
-  padding: 10px;
-  margin-left: 10px;*/
-  /*flex-basis: 100%;*/
-  /*width: 33%;*/
-/*}*/
 
-/*.topresults{
-  display: flex;
-  flex-direction: column;
-}*/
+.search {
+  font: 16px 'Chalkduster';
+  color: black;
+  border: none;
+  background-color: transparent;
+  border-radius: 15px;
+  width: 20%;
+  border: 2px solid black;
+}
