@@ -22,32 +22,39 @@ const Location = React.createClass({
 		// // if(this.props.users !== undefined){
 		// // console.log('USER:', this.props.users.zipcode)
 		// // }
-				this.getCurrentState('11201')
+				// this.getCurrentState('11201')
 	},
-	handleClick(e) {
-		e.preventDefault()
-		// Promise.resolve(this.getCurrentState('11201'))
-		// .then(()=>(
-		// 	// console.log('working')
-		// 			this.props.getSchools(this.state, '05')
-		// 	// console.log('USER:', this.props.users.zipcode)
-		// 	// this.props.getSchools(this.getCurrentState())
-		// ))
+	// handleClick(e) {
+	// 	e.preventDefault()
+	// 	var p = new Promise((resolve, reject) => {  
+	// 	   resolve(this.getCurrentState('11201'));
+	// 	});
+	// 	// Promise.resolve(this.getCurrentState('11201'))
+	// 	setTimeout(()=>{
+	// 	p.then((data)=>{
+	// 		console.log("data",data)
+	// 		console.log(this.state)
+	// 		// console.log('working')
+	// 				// this.props.getSchools(this.state, '05')
+	// 		// console.log('USER:', this.props.users.zipcode)
+	// 		// this.props.getSchools(this.getCurrentState())
+	// 	})
+	// }, 1000)
+	// 	console.log("state",this.state)
+	// 	//this.props.getSchools(this.state, '05')
+	// 	// console.log('SCHOOLS in handleCLick:',this.props.schools)
 
-		this.props.getSchools(this.state, '05')
-		// console.log('SCHOOLS in handleCLick:',this.props.schools)
-
-		// Promise.resolve(this.props.users)
-		// .then(()=>(
-		// 	console.log('USER:', this.props.users)
-		// 	// this.props.getSchools(this.getCurrentState())
-		// ))
+	// 	// Promise.resolve(this.props.users)
+	// 	// .then(()=>(
+	// 	// 	console.log('USER:', this.props.users)
+	// 	// 	// this.props.getSchools(this.getCurrentState())
+	// 	// ))
 
 
-	},
+	// },
 	findSchools: function(e){
-		e.preventDefault()
-		// Promise.resolve(t)
+		// e.preventDefault()
+		// Promise.resolve()
 		// .then(()=>(
 		// 	this.props.getSchools(this.state)
 		// ))
@@ -71,38 +78,59 @@ const Location = React.createClass({
 			// }) <=== TRIED CREATING PROMISE, DID NOT WORK. 
 		}
 	},
-	getCurrentState(zip) {
+	handleClick(e) {
+e.preventDefault()
 		let schoolGradeArr = []
-		console.log(1)
-		  Promise.resolve(getDistrict(zip))
+			let district = null;
+			let grades = null;
+			let attendance = null;
+			let math = null;
+			let english = null;
+			console.log(this.props.users.zipcode)
+		  Promise.resolve(getDistrict(this.props.users.zipcode))
 		  .then((temp)=> {
-		    this.setState({district: temp.data });
-		  });
+		  	district = temp.data
+		    //this.setState({district: temp.data });
+		  })
 
-		  Promise.resolve(getSchoolGrade())
+		  .then(()=> getSchoolGrade())
 		  .then((temp)=> {
-		    this.setState({grades: temp.data });
-		  });
+		  	grades = temp.data
+		    //this.setState({grades: temp.data });
+		  })
 
-		  Promise.resolve(getAttendance())
+		  .then(()=> getAttendance())
 		  .then((temp)=> {
-		    this.setState({attendance: temp.data });
-		  });
+		  	attendance= temp.data
+		    //this.setState({attendance: temp.data });
+		  })
 
-		  Promise.resolve(getMathScores())
+		  .then(()=> getMathScores())
 		  .then((temp)=> {
-		    this.setState({math: temp.data });
-		  });
+		  	math=temp.data
+		    //this.setState({math: temp.data });
+		  })
 
-		  Promise.resolve(getEnglishScores())
+		  .then(()=> getEnglishScores())
 		  .then((temp)=> {
-		    this.setState({english: temp.data });
-		  });
+		  	english = temp.data
+		    //this.setState({english: temp.data });
+		  })
+		  .then(()=> {
+		  	// setTimeout(()=>{
+
+		  	return {district , math, english, attendance, grades}
+		  	// }, 2000)
+		  })
+		  .then((data)=>{
+		  	console.log(data)
+		  	this.props.getSchools(data, '05')
+		  })
 
 	},
 	render:function(){
 		console.log('SCHOOLS in render:', this.props.schools)
-		console.log('USERS in render:',this.props.users)
+		// console.log('USERS in render:',this.props.users)
 	return(
 		<div>
 			<h2>Where do you live?</h2>
