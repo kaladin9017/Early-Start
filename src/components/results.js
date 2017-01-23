@@ -16,7 +16,7 @@ const Results = React.createClass({
 		// console.log('it works!')
 	},
 	render(){
-		console.log("state", this.props.schools)
+		console.log("SCHOOL STATE ON RESULTS PAGE", this.props.schools)
 		// let displayResults = this.state.props.users.schooldata.map((val, idx)=>{
 		const array = [{hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'},{hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}, {hello: 'world'}]
 		let displayResults = array.map((val, idx)=>{
