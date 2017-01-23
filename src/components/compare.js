@@ -4,8 +4,10 @@ import {connect} from "react-redux";
 import {Gmaps, Marker} from 'react-gmaps';
 import _ from 'lodash';
 
+import AfterSchoolIcon from './icons/AfterSchoolIcon';
+
 //STYLING
-import {Segment, Header, List, Button, Divider, Icon} from 'semantic-ui-react';
+import {Segment, Header, List, Button, Divider, Icon, Popup, Image} from 'semantic-ui-react';
 import '../App.css';
 
 //STATE
@@ -17,9 +19,9 @@ const mapState = state => ({
 
 const Compare = React.createClass({
 	onMapCreated(map) {
-		//Creates Google map display. 
+		//Creates Google map display.
 	},
-	render() {	
+	render() {
 		console.log('RESULT STATE======>', this.props.threeSchools )
 		console.log('RESULT STATE======>', this.props )
 	// <InfoWindow
@@ -32,7 +34,7 @@ const Compare = React.createClass({
 		// 	return (
 		// 		<Segment color='orange'>
 		// 	      	 <Header as='h5' attached='top'>
-		//  				School Three 
+		//  				School Three
 		// 			</Header>
 		// 			<List>
 		// 			    <List.Item>Address</List.Item>
@@ -59,11 +61,11 @@ const Compare = React.createClass({
 		          lat={40.741483}
 		          lng={-73.933395}
 		          radius={500}
-		          onClick={this.onClick} />  
+		          onClick={this.onClick} />
 
 				<Marker
 					lat={40.742387}
-					lng={ -73.935386}/>    
+					lng={ -73.935386}/>
 			</Gmaps>
 	      </div>
 	      <center>
@@ -80,20 +82,20 @@ const Compare = React.createClass({
 								</Header>
 								<br />
 
-							
-								
+
+
 								<List>
-								    
+
 									<List.Item><strong>Math Score:</strong> {school.val.math.mean_scale_score}</List.Item>
-						
+
 									<List.Item><strong>English Score:</strong> {school.val.english.mean_scale_score}</List.Item>
-									
+
 									<List.Item><strong>Attendance:</strong> {school.val.attendance._of_attd_taken+'%'}</List.Item>
 
 									<br />
 
-							
-								
+
+
 									<List.Item>
 										<List.Icon name='marker' />
 										<List.Content>{school.val.primary_address}</List.Content>
@@ -103,6 +105,15 @@ const Compare = React.createClass({
 										<List.Icon name='mail' />
 										<List.Content>{school.val.principal_email}</List.Content>
 									</List.Item>
+									<List.Item>
+                    <Popup
+                      trigger={<List.Icon circular name='heart' />}
+                      flowing
+                      hoverable
+                      >
+                      <AfterSchoolIcon />
+                    </Popup>
+									</List.Item>
 
 
 								  </List>
@@ -111,7 +122,7 @@ const Compare = React.createClass({
 					})) }
 		      </Segment.Group>
 			</div>
-			
+
 			<Button primary onClick={this.handleClick}>Print</Button></center>
 	  </div>
 	);
@@ -123,11 +134,4 @@ const Compare = React.createClass({
 // }
 
 export default connect(mapState)(Compare);
-//second prop is automatically dispatch. 
-		      
-  
-
-
-
-
-
+//second prop is automatically dispatch.
