@@ -1,11 +1,13 @@
 //LIBRARIES
 import React from 'react';
 import {connect} from "react-redux";
-import {Gmaps, Marker} from 'react-gmaps';
+import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 import _ from 'lodash';
 
+import AfterSchoolIcon from './icons/AfterSchoolIcon';
+
 //STYLING
-import {Segment, Header, List, Button, Divider, Icon} from 'semantic-ui-react';
+import {Segment, Header, List, Button, Divider, Icon, Popup, Image} from 'semantic-ui-react';
 import '../App.css';
 
 //STATE
@@ -17,12 +19,14 @@ const mapState = state => ({
 
 const Compare = React.createClass({
 	onMapCreated(map) {
-		//Creates Google map display. 
+		//Creates Google map display.
 	},
-	render() {	
+	render() {
 		// console.log('USER STATE======>', this.props.users )
 		console.log('RESULT STATE======>', this.props.threeSchools )
-		console.log('RESULT STATE======>', this.props )
+		console.log('RESULT LAT======>', this.props.threeSchools.threeSchools[0].val.latitude )
+		console.log('RESULT LNG======>', this.props.threeSchools.threeSchools[0].val.longitude )
+		// console.log('RESULT STATE======>', this.props )
 	// <InfoWindow
       // lat={40.741483}
       // lng={-73.933395}
@@ -33,7 +37,7 @@ const Compare = React.createClass({
 		// 	return (
 		// 		<Segment color='orange'>
 		// 	      	 <Header as='h5' attached='top'>
-		//  				School Three 
+		//  				School Three
 		// 			</Header>
 		// 			<List>
 		// 			    <List.Item>Address</List.Item>
@@ -51,20 +55,26 @@ const Compare = React.createClass({
 	  	<div className='gmaps'>
 	      <Gmaps
 	        width={'1300px'}
-	        height={'300px'}
-	        lat={40.741992}
-	        lng={-73.927947}
-	        zoom={15}
+	        height={'425px'}
+	        lat={40.702552}
+	        lng={-73.984016}
+	        zoom={12}
 	        onMapCreated={this.onMapCreated}>
-		        <Marker
-		          lat={40.741483}
-		          lng={-73.933395}
-		          radius={500}
-		          onClick={this.onClick} />  
+	        <InfoWindow
+		      lat={40.702552}
+		      lng={-73.984016}
+		      content={'Home'}
+		      onCloseClick={this.onCloseClick} />
 
 				<Marker
-					lat={40.742387}
-					lng={ -73.935386}/>    
+					lat={this.props.threeSchools.threeSchools[0].val.latitude}
+					lng={this.props.threeSchools.threeSchools[0].val.longitude}/>
+				<Marker
+					lat={this.props.threeSchools.threeSchools[1].val.latitude}
+					lng={this.props.threeSchools.threeSchools[1].val.longitude}/>
+				<Marker
+					lat={this.props.threeSchools.threeSchools[2].val.latitude}
+					lng={this.props.threeSchools.threeSchools[2].val.longitude}/>
 			</Gmaps>
 	      </div>
 	      <center>
@@ -81,20 +91,20 @@ const Compare = React.createClass({
 								</Header>
 								<br />
 
-							
-								
+
+
 								<List>
-								    
+
 									<List.Item><strong>Math Score:</strong> {school.val.math.mean_scale_score}</List.Item>
-						
+
 									<List.Item><strong>English Score:</strong> {school.val.english.mean_scale_score}</List.Item>
-									
+
 									<List.Item><strong>Attendance:</strong> {school.val.attendance._of_attd_taken+'%'}</List.Item>
 
 									<br />
 
-							
-								
+
+
 									<List.Item>
 										<List.Icon name='marker' />
 										<List.Content>{school.val.primary_address}</List.Content>
@@ -104,6 +114,15 @@ const Compare = React.createClass({
 										<List.Icon name='mail' />
 										<List.Content>{school.val.principal_email}</List.Content>
 									</List.Item>
+									<List.Item>
+                    <Popup
+                      trigger={<List.Icon circular name='heart' />}
+                      flowing
+                      hoverable
+                      >
+                      <AfterSchoolIcon />
+                    </Popup>
+									</List.Item>
 
 
 								  </List>
@@ -112,7 +131,7 @@ const Compare = React.createClass({
 					})) }
 		      </Segment.Group>
 			</div>
-			
+
 			<Button primary onClick={this.handleClick}>Print</Button></center>
 	  </div>
 	);
@@ -124,11 +143,4 @@ const Compare = React.createClass({
 // }
 
 export default connect(mapState)(Compare);
-//second prop is automatically dispatch. 
-		      
-  
-
-
-
-
-
+//second prop is automatically dispatch.
