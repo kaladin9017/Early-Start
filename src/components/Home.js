@@ -1,12 +1,13 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import {TimelineMax, Power0, TweenMax, SteppedEase, Elastic } from 'gsap';
+import {TimelineMax, Power0, TweenMax, SteppedEase, Elastic, Bounce } from 'gsap';
 import Welcome from '../modals/Welcome';
 import Age from '../modals/Age';
 import Location from '../modals/Location';
 
 
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 import {bindActionCreators} from 'redux';
 
 import {addAddress, addCity, addZipcode} from '../actions/userActions';
@@ -26,25 +27,23 @@ const renderClouds = ({target}) => {
     .to(sky, 1500, {backgroundPositionX: 3599, ease: Power0.easeOut })
 }
 
+const changeRoutes = (router) => {
+  router.push("/results")
+}
 
-const hideWelcome = ({target}) => {
 
+const hideWelcome = (utils, app) => {
+  const {target} = utils
+  console.log(utils.options.props.router)
   //find elements to animate
   const welcome = target.find({className: 'welcome'})
   const boy = target.find({className: 'spirte'})
   const buildings = target.find({className: 'buildings'})
   const age = target.find({className: "age"})
+  const location = target.find({className: "location"})
+  const bus = target.find({className: "bus"})
+  const tree1 = target.find({className: "tree1"})
 
-  const stopAnimation = (tl) => {
-    console.log("stop", tl)
-    tl.pause()
-    // setTimeout(() => tl.play(), 1000)
-    
-  }
-  const isPaused = () => {
-    console.log("isPaused")
-  }
-  // timeline
   const tl = new TimelineMax({paused:true});
 
   const tlPromise = new Promise(() => {
@@ -53,13 +52,16 @@ const hideWelcome = ({target}) => {
       .to(boy, 2.5, {backgroundPosition: "-1280px 0px", ease:SteppedEase.config(8), repeat: -1, repeatDelay:-.5}, "start -=1")
       .add("start")
       .to(buildings, 7, {backgroundPositionX: 150, ease: Power0.easeOut}, "start -=1")
+      .fromTo(tree1, .5, {bottom: 715}, {bottom: 25, ease: Bounce.easeOut, },"start")
       .from(age, .75, {scale: .2, opacity:0, ease:  Elastic.easeOut.config(1, 1), y: 500, repeat:1, yoyo:true}, "start +=.2")
       .addPause(2.3)
+      .from(location, .75, {scale: .2, opacity:0, ease:  Elastic.easeOut.config(1, 1), y: 500, repeat:1, yoyo:true}, "start +=3")
+      .fromTo(bus, 3, {left: 1300, ease:Power0.easeIn}, {left: -1300, ease:Power0.easeIn}, "start +=2.8")
+      .addPause(4.7)
+      .to(buildings, 1, {opacity: 0, onComplete: ()=> changeRoutes(utils.options.props.router)}, "start +=4.5")
 
   })
 
-
-    console.log('timeline', tl)
   return tl
 
 }
@@ -67,7 +69,7 @@ const hideWelcome = ({target}) => {
 class Home extends React.Component {
   componentDidMount() {
     this.clouds = this.addAnimation(renderClouds)
-    this.welcome = this.addAnimation(hideWelcome)
+    this.welcome = this.addAnimation(hideWelcome, this)
   }
 
   //   componentDidUpdate() {
@@ -83,9 +85,10 @@ class Home extends React.Component {
         <div className="buildings"></div>
         <div className="spirte"></div>
         <div className="tree1"></div>
+        <div className="bus"></div>
         <Welcome className="welcome" parent={this}/>
         <Age className="age" parent={this}/>
-        <Location className="location" {...this.props}/>
+        <Location className="location" {...this.props} parent={this}/>
       </div>
     )
   }

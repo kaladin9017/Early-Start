@@ -23,7 +23,9 @@ const Location = React.createClass({
 	},
 	handleClick(e) {
 		e.preventDefault()
-		let schoolGradeArr = []
+		this.props.parent.welcome.resume()
+
+		//send out ajax calls
 			let district = null;
 			let grades = null;
 			let attendance = null;
@@ -63,7 +65,7 @@ const Location = React.createClass({
 	render(){
 		console.log('SCHOOLS in render:', this.props.schools)
 		return(
-			<div>
+			<div className="location">
 				<h2>Where do you live?</h2>
 
 				<form onSubmit={this.handleClick}>

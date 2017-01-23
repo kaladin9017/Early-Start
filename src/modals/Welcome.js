@@ -4,7 +4,7 @@ import React from 'react'
 const Welcome = React.createClass({
   goToAge: function(){
     console.log("play", this.props.parent.welcome)
-    this.props.parent.welcome.play()
+    this.props.parent.welcome.resume()
   },
   render: function (){
     return(

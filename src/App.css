@@ -12,7 +12,6 @@ body {
 .logo {
   position: fixed;
   z-index: 100000000;
-  display: none;
 }
 
 .reLogo {
@@ -74,7 +73,6 @@ body {
   top: 25vh;
   left: 30vw;
   transform: translate(50, 50);
-  border: 1px solid blue;
 }
 
 .titleWelcome {
@@ -151,12 +149,34 @@ body {
 .tree1 {
   background: url('../public/images/tree1.png') no-repeat;
   position: absolute;
+  background-size: 100%; 
   bottom: 25px;
   left: 625px;
   width: 141px;
   height: 300px;
 }
 
+.location {
+  position: absolute;
+  top: 30vh;
+  left: 30vw;
+  background: white;
+  padding: 2vw;
+  font-family: 'Chalkduster';
+}
+
+.location h2 {
+  font-family: 'Chalkduster';
+}
+.bus {
+  position: absolute;
+  background: url('../public/images/school_bus.png') no-repeat;
+  background-size: 100%;
+  width: 750px;
+  height: 280px;
+  right: 10vw;
+  bottom: 10px;
+}
 /*-------------------------COMPARE PAGE----------------------*/
 .gmaps{
 /*  display: flex;*/
