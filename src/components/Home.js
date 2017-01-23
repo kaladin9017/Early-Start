@@ -15,7 +15,7 @@ import {getSchools} from '../actions/index'
 
 const mapState = state => ({
     schools: state.schools,
-    users: state.users, 
+    users: state.users,
 });
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({addAddress, addCity, addZipcode, getSchools}, dispatch)
@@ -48,7 +48,7 @@ const hideWelcome = (utils, app) => {
 
   const tlPromise = new Promise(() => {
     tl.to(welcome, 1.2, {scale: .2, opacity: 0, ease: Power0.easeOut})
-      
+
       .to(boy, 2.5, {backgroundPosition: "-1280px 0px", ease:SteppedEase.config(8), repeat: -1, repeatDelay:-.5}, "start -=1")
       .add("start")
       .to(buildings, 7, {backgroundPositionX: 150, ease: Power0.easeOut}, "start -=1")

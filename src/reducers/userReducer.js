@@ -2,7 +2,7 @@ const _defaultState = {
 	age: "3-5",
 	address: [],
 	city: [],
-	zipcode: ["11201"],
+	zipcode: [],
 	schooldata: []
 }
 

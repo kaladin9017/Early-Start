@@ -24,6 +24,9 @@ import Welcome from './modals/Welcome';
 import Age from './modals/Age';
 import Location from './modals/Location';
 
+// ICON IMPORTS
+import AfterSchoolIcon from './components/icons/AfterSchoolIcon';
+
 //ROUTER
 ReactDOM.render(
     <Provider store={store}>
@@ -31,7 +34,8 @@ ReactDOM.render(
         	<Route path='/' component={App}>
 	        	<IndexRoute component={Home} />
                 <Route path='/TEST' component={Location} />
-	        	<Route path='/results' component={Results} />
+                <Route path='/icons' component={AfterSchoolIcon} />
+	        	<Route path='/results/' component={Results} />
 	        	<Route path='/compare' component={Compare} />
         	</Route>
         </Router>

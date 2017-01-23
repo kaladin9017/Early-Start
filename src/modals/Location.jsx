@@ -19,13 +19,13 @@ const Location = React.createClass({
 		e.preventDefault()
 
 		if(this.props.parent){
-			
-			//this is for production 
+
+			//this is for production
 			this.props.parent.welcome.resume()
 		} else {
 
 			//this is for testing
-			this.props.router.push('/results')
+			this.props.router.push('/results/')
 		}
 
 		//send out ajax calls
@@ -97,7 +97,7 @@ const Location = React.createClass({
 					value={this.props.users.zipcode}
 					onChange={this.handleChange.bind(this, 'zipCode')} />
 
-					<br /> 
+					<br />
 					<br />
 					<input className="search" type="submit"
 					value="Search Address" />
@@ -118,5 +118,3 @@ const  mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapState, mapDispatchToProps)(Location);
-
-
