@@ -23,6 +23,7 @@ const Location = React.createClass({
 
         //this is for testing
         this.props.router.push('/results')
+
 		//send out ajax calls
 			let district = null;
 			let grades = null;
@@ -64,7 +65,6 @@ const Location = React.createClass({
 		  	console.log(data)
 		  	this.props.getSchools(data, '05')
 		  })
-		  this.props.router.push('/results')
 
 	},
 	render:function(){
@@ -90,6 +90,7 @@ const Location = React.createClass({
 					<input type="text"
 					className="half"
 					placeholder="Zip Code"
+					value={this.props.users.zipcode}
 					onChange={this.handleChange.bind(this, 'zipCode')} />
 
 					<br /> 
