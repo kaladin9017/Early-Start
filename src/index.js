@@ -10,7 +10,6 @@ import 'gsap';
 
 //COMPONENT IMPORTS
 import App from './App';
-import SampleComponent from './SampleComponent';
 import Compare from './components/compare'
 import Results from './components/results'
 

@@ -1,20 +1,21 @@
 import React from 'react'
 
+
 const Welcome = React.createClass({
   goToAge: function(){
+    console.log("play", this.props.parent.welcome)
+    this.props.parent.welcome.play()
 
   },
   render: function (){
     return(
-      <div>
+      <div className="welcome">
 
-      <img src={require("../../public/images/chalkboardText.png")} useMap="#image-map" />
-
-      <map name="image-map" id="image-map">
-          <area target="_self" alt="Parent" title="Parent" coords="147,297,285,343" shape="rect" onClick={this.goToAge}/>
-
-          <area target="_self" alt="Student" title="Student" coords="491,344,340,295" shape="rect" onClick={this.goToAge} />
-      </map>
+        <map name="image-map" id="image-map">
+          <h1>Welcome!</h1>
+          <p>Early Start helps families in NYC</p>
+          <button onClick={this.goToAge}>Start</button>
+        </map>
 
       </div>
     )
