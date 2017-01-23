@@ -103,9 +103,11 @@ const Location = React.createClass({
 
 });
 
-
+function mapDispatchToProps(dispatch){
+	return bindActionCreators({addAddress, addCity, addZipcode, getSchools}, dispatch)
+}
 // export default connect(mapState, {getSchools})(Location);
-export default Location;
+export default connect(mapState, mapDispatchToProps)(Location);
 
 //second prop is automatically dispatch.
 

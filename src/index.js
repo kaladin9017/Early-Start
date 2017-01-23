@@ -29,7 +29,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
         	<Route path='/' component={App}>
-	        	<IndexRoute components={Home} />
+	        	<IndexRoute component={Home} />
                 <Route path='/TEST' component={Location} />
 	        	<Route path='/results' component={Results} />
 	        	<Route path='/compare' component={Compare} />

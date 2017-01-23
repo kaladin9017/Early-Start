@@ -5,6 +5,21 @@ import Welcome from '../modals/Welcome';
 import Age from '../modals/Age';
 import Location from '../modals/Location';
 
+
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import {addAddress, addCity, addZipcode} from '../actions/userActions';
+import {getSchools} from '../actions/index'
+
+const mapState = state => ({
+    schools: state.schools,
+    users: state.users
+});
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({addAddress, addCity, addZipcode, getSchools}, dispatch)
+}
+
 const renderClouds = ({target}) => {
   const sky = target.find({className: 'sky'})
   return new TimelineMax({repeat: -1})
@@ -17,7 +32,6 @@ const hideWelcome = ({target}) => {
   //find elements to animate
   const welcome = target.find({className: 'welcome'})
   const boy = target.find({className: 'spirte'})
-  const box = target.find({className: 'box'})
   const buildings = target.find({className: 'buildings'})
   const age = target.find({className: "age"})
 
@@ -52,7 +66,7 @@ const hideWelcome = ({target}) => {
 
 class Home extends React.Component {
   componentDidMount() {
-    // this.clouds = this.addAnimation(renderClouds)
+    this.clouds = this.addAnimation(renderClouds)
     this.welcome = this.addAnimation(hideWelcome)
   }
 
@@ -63,7 +77,6 @@ class Home extends React.Component {
 
 
   render(){
-    console.log(this.props)
     return (
       <div className="home">
         <div className="sky"></div>
@@ -72,9 +85,10 @@ class Home extends React.Component {
         <div className="tree1"></div>
         <Welcome className="welcome" parent={this}/>
         <Age className="age" parent={this}/>
+        <Location className="location" {...this.props}/>
       </div>
     )
   }
 }
 
-export default GSAP(Home);
+export default connect(mapState, mapDispatchToProps)(GSAP(Home));
