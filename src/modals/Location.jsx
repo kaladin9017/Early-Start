@@ -18,11 +18,11 @@ const Location = React.createClass({
 	handleClick(e) {
 		e.preventDefault()
 
-		//this is for production 
-		this.props.parent.welcome.resume()
+		//this is for production
+		//this.props.parent.welcome.resume() 
 
-		//this is for testing
-		// this.props.router.push('/results')
+        //this is for testing
+        this.props.router.push('/results')
 
 		//send out ajax calls
 			let district = null;
@@ -72,28 +72,32 @@ const Location = React.createClass({
 		console.log('SCHOOLS in render:', this.props.schools)
 		return(
 			<div className="location">
-				<h2>Where do you live?</h2>
+				<center><h2>Where do you live?</h2>
 
 				<form onSubmit={this.handleClick}>
 					<input type="text"
+					className="street"
 					placeholder="Street Address"
 					onChange={this.handleChange.bind(this, 'address')} />
 					<br />
+					<br />
 
 					<input type="text"
+					className="half"
 					placeholder="City"
 					onChange={this.handleChange.bind(this, 'city')} />
 
 					<input type="text"
+					className="half"
 					placeholder="Zip Code"
 					value={this.props.users.zipcode}
 					onChange={this.handleChange.bind(this, 'zipCode')} />
 
 					<br /> 
 					<br />
-					<input type="submit"
+					<input className="search" type="submit"
 					value="Search Address" />
-				</form>
+				</form></center>
 			</div>
 			)
 		}
