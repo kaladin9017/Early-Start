@@ -5,12 +5,14 @@ import {combineReducers} from "redux";
 import schoolReducer from './schoolReducer';
 import testReducer from "./testReducer";
 import userReducer from "./userReducer";
+import resultReducer from "./resultReducer";
 
 //COMBINING REDUCERS
 const rootReducer = combineReducers({
     test : testReducer,
     schools: schoolReducer,
-    users: userReducer
+    users: userReducer,
+    threeSchools: resultReducer
 });
 
 export default rootReducer;

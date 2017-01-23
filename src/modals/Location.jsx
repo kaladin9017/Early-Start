@@ -5,13 +5,7 @@ import {bindActionCreators} from 'redux';
 import {addAddress, addCity, addZipcode, getSchooldata} from '../actions/userActions';
 import {getSchools, getDistrict, getSchoolGrade, getAttendance, getMathScores, getEnglishScores} from '../actions/index'
 
-const mapState = state => ({
-    schools: state.schools,
-    users: state.users
-});
-
 const Location = React.createClass({
-
 	handleChange: function(input, event){
 		if(input === 'address'){
 			this.props.addAddress(event.target.value)
@@ -29,15 +23,18 @@ const Location = React.createClass({
 			let attendance = null;
 			let math = null;
 			let english = null;
-			console.log(this.props.users.zipcode)
+			console.log('ZIPCODE IN HANDLECLICK:', this.props.users.zipcode)
+
 		  Promise.resolve(getDistrict(this.props.users.zipcode))
 		  .then((temp)=> {
 		  	district = temp.data
 		  })
+
 		  .then(()=> getSchoolGrade())
 		  .then((temp)=> {
 		  	grades = temp.data
 		  })
+
 		  .then(()=> getAttendance())
 		  .then((temp)=> {
 		  	attendance= temp.data
@@ -47,51 +44,64 @@ const Location = React.createClass({
 		  .then((temp)=> {
 		  	math=temp.data
 		  })
+
 		  .then(()=> getEnglishScores())
 		  .then((temp)=> {
 		  	english = temp.data
 		  })
+
 		  .then(()=> {
 		  	return {district , math, english, attendance, grades}
 		  })
+
 		  .then((data)=>{
 		  	console.log(data)
 		  	this.props.getSchools(data, '05')
 		  })
+		  this.props.router.push('/results')
 
 	},
-	render(){
+	render:function(){
+		console.log('this props', this.props)
 		console.log('SCHOOLS in render:', this.props.schools)
-		return(
-			<div>
-				<h2>Where do you live?</h2>
+	return(
+		<div>
+			<h2>Where do you live?</h2>
 
-				<form onSubmit={this.handleClick}>
-					<input type="text"
-					placeholder="Street Address"
-					onChange={this.handleChange.bind(this, 'address')} />
-					<br />
+			<form onSubmit={this.handleClick}>
+				<input type="text"
+				placeholder="Street Address"
+				onChange={this.handleChange.bind(this, 'address')} />
+				<br />
 
-					<input type="text"
-					placeholder="City"
-					onChange={this.handleChange.bind(this, 'city')} />
+				<input type="text"
+				placeholder="City"
+				onChange={this.handleChange.bind(this, 'city')} />
 
-					<input type="text"
-					placeholder="Zip Code"
-					value={this.props.users.zipcode}
-					onChange={this.handleChange.bind(this, 'zipCode')} />
+				<input type="text"
+				placeholder="Zip Code"
+				onChange={this.handleChange.bind(this, 'zipCode')} />
 
-					<br /> 
-					<br />
-					<input type="submit"
-					value="Search Address" />
-				</form>
-			</div>
-			)
+				<br /> 
+				<br />
+				<input type="submit"
+				value="Search Address" />
+			</form>
+		</div>
+		)
 	}
 
 });
 
-export default Location;
+const mapState = state => ({
+    schools: state.schools,
+    users: state.users
+});
+
+const  mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({addAddress, addCity, addZipcode, getSchools}, dispatch)
+}
+
+export default connect(mapState, mapDispatchToProps)(Location);
 
 

@@ -12,7 +12,6 @@ body {
 .logo {
   position: fixed;
   z-index: 100000000;
-  display: none;
 }
 
 .reLogo {
@@ -157,6 +156,10 @@ body {
   height: 300px;
 }
 
+/*-------------------------RESULT PAGE----------------------*/
+.compare-button{
+  margin-top: 10px;
+}
 /*-------------------------COMPARE PAGE----------------------*/
 .gmaps{
 /*  display: flex;*/
