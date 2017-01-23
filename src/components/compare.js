@@ -5,7 +5,7 @@ import {Gmaps, Marker} from 'react-gmaps';
 import _ from 'lodash';
 
 //STYLING
-import {Segment, Header, List, Button} from 'semantic-ui-react';
+import {Segment, Header, List, Button, Divider, Icon} from 'semantic-ui-react';
 import '../App.css';
 
 //STATE
@@ -49,8 +49,8 @@ const Compare = React.createClass({
 	  <div>
 	  	<div className='gmaps'>
 	      <Gmaps
-	        width={'1100px'}
-	        height={'400px'}
+	        width={'1300px'}
+	        height={'300px'}
 	        lat={40.741992}
 	        lng={-73.927947}
 	        zoom={15}
@@ -66,34 +66,53 @@ const Compare = React.createClass({
 					lng={ -73.935386}/>    
 			</Gmaps>
 	      </div>
+	      <center>
 			<div className="flex-grid">
 				<Segment.Group horizontal>
 				{!this.props.threeSchools ?	null :
 
 			(this.props.threeSchools.threeSchools.map((school, idx)=>{
 						return (
-							<Segment color='orange'>
-						      	 <Header as='h5' attached='top'>
+							<Segment color='blue' >
+						      	 <Header as='h4' icon>
+						      	 	<Icon name = 'student' />
 					 				{school.val.location_name}
 								</Header>
+								<br />
+
+							
+								
 								<List>
-								     <List.Item>Address</List.Item>
-										<List.Item>{school.val.primary_address}</List.Item>
-										<List.Item>Principal Email</List.Item>
-										<List.Item>{school.val.principal_email}</List.Item>
-										<List.Item>Math Score</List.Item>
-										<List.Item>{school.val.math.mean_scale_score}</List.Item>
-										<List.Item>English Score</List.Item>
-										<List.Item>{school.val.english.mean_scale_score}</List.Item>
-										<List.Item>Attendance</List.Item>
-										<List.Item>{school.val.attendance._of_attd_taken+'%'}</List.Item>
+								    
+									<List.Item><strong>Math Score:</strong> {school.val.math.mean_scale_score}</List.Item>
+						
+									<List.Item><strong>English Score:</strong> {school.val.english.mean_scale_score}</List.Item>
+									
+									<List.Item><strong>Attendance:</strong> {school.val.attendance._of_attd_taken+'%'}</List.Item>
+
+									<br />
+
+							
+								
+									<List.Item>
+										<List.Icon name='marker' />
+										<List.Content>{school.val.primary_address}</List.Content>
+									</List.Item>
+
+									<List.Item>
+										<List.Icon name='mail' />
+										<List.Content>{school.val.principal_email}</List.Content>
+									</List.Item>
+
+
 								  </List>
 						      </Segment>
 						)
 					})) }
 		      </Segment.Group>
 			</div>
-			<Button inverted color='orange' onClick={this.handleClick}>Print</Button>
+			
+			<Button primary onClick={this.handleClick}>Print</Button></center>
 	  </div>
 	);
 	}
