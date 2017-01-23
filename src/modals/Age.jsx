@@ -12,7 +12,7 @@ const Age = React.createClass({
 		console.log(event.target.value)
 	},
 	goToLocation() {
-		this.props.parent.welcome.resume('fadeout');
+		this.props.parent.welcome.resume();
 	},
 	render: function(){
 		return(

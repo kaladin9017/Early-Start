@@ -12,9 +12,9 @@ const Welcome = React.createClass({
       <div className="welcome">
 
         <map name="image-map" id="image-map">
-            <area target="_self" alt="Parent" title="Parent" coords="147,297,285,343" shape="rect" onClick={this.goToAge}/>
-
-            <area target="_self" alt="Student" title="Student" coords="491,344,340,295" shape="rect" onClick={this.goToAge} />
+          <h1>Welcome!</h1>
+          <p>Early Start helps families in NYC</p>
+          <button onClick={this.goToAge}>Start</button>
         </map>
 
       </div>

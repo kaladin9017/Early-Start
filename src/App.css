@@ -60,27 +60,16 @@ body {
 
 .welcome {
   background: url('../public/images/chalkboard.png') no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   width: 550px;
-  height: 500px;
+  height: 400px;
   position: absolute;
   top: 25vh;
   left: 30vw;
   transform: translate(50, 50);
+  border: 1px solid blue;
 
 }
-
-
-.welcome img {
-  width: 100%;
-}
-
-.ageForm {
-  position: absolute;
-  margin-left: 43%;
-  margin-top: 27%;
-}
-
 
 .age {
   width: 425px;

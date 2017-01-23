@@ -4,6 +4,7 @@ import './App.css';
 class App extends Component {
   render() {
     const {children} = this.props;
+    console.log(children)
     return (
       <div className="App">
         <div className="logo">

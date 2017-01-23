@@ -29,7 +29,8 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
         	<Route path='/' component={App}>
-	        	<IndexRoute component={Home} />
+	        	<IndexRoute component={Home}>
+            </IndexRoute>
 	        	<Route path='/results' component={Age} />
 	        	<Route path='/compare' component={Compare} />
         	</Route>
