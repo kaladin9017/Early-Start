@@ -1,64 +1,23 @@
+//LIBRARIES
 import React from 'react';
-import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
+import {connect} from "react-redux";
+import {Gmaps, Marker} from 'react-gmaps';
 
+//STYLING
 import {Segment, Header, List, Button} from 'semantic-ui-react';
 import '../App.css';
-import {connect} from "react-redux";
 
-import {getSchools, getDistrict, getSchoolGrade, getAttendance, getMathScores, getEnglishScores} from '../actions/index'
-
+//STATE
 const mapState = state => ({
-    schools: state.schools
+    users: state.users
 });
-
-// Binds Actions
-// const mapDispatch(dispatch) {
-// 	return bindActionCreator({getSchools, sfsdffd, sfds ssmfs}, dispatch)
-// }
 
 
 const Compare = React.createClass({
-	componentWillMount(){
-		this.getCurrentState()
-	},
 	onMapCreated(map) {
 		//Creates Google map display. 
 	},
-	handleClick() {
-		this.props.getSchools(this.state)
-		console.log(this.props.schools)
-	},
-	getCurrentState() {
-		let schoolGradeArr = []
-		console.log(1)
-		  Promise.resolve(getDistrict("11201"))
-		  .then((temp)=> {
-		    this.setState({district: temp.data });
-		  });
-
-		  Promise.resolve(getSchoolGrade('1'))
-		  .then((temp)=> {
-		    this.setState({grades: temp.data });
-		  });
-
-		  Promise.resolve(getAttendance('1'))
-		  .then((temp)=> {
-		    this.setState({attendance: temp.data });
-		  });
-
-		  Promise.resolve(getMathScores('1'))
-		  .then((temp)=> {
-		    this.setState({math: temp.data });
-		  });
-
-		  Promise.resolve(getEnglishScores('1'))
-		  .then((temp)=> {
-		    this.setState({english: temp.data });
-		  });
-
-	},
-	render() {
-		
+	render() {	
 	// <InfoWindow
       // lat={40.741483}
       // lng={-73.933395}
@@ -147,8 +106,12 @@ const Compare = React.createClass({
 	);
 	}
 });
+// Binds Actions
+// const mapDispatch(dispatch) {
+// 	return bindActionCreator({getSchools, sfsdffd, sfds ssmfs}, dispatch)
+// }
 
-export default connect(mapState, {getSchools})(Compare);
+export default connect(mapState)(Compare);
 //second prop is automatically dispatch. 
 		      
 

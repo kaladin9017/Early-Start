@@ -1,36 +1,31 @@
-import {addAge, addAddress, addCity, addZipcode, getSchooldata} from '../actions/userActions';
-
 const _defaultState = {
 	age: [],
 	address: [],
 	city: [],
-	zipcode: [],
+	zipcode: ["11201"],
 	schooldata: []
 }
 
 const userReducer = (state = _defaultState, action) => {
+	console.log('ACTIONS ZIPCODE:', action.zipcode)
 	switch(action.type){
 		case "ADD_AGE" :
 			return ({
-				age: [...state.age, action.age]
+				age: [action.age]
 			})
 		case "ADD_ADDRESS" :
 			return ({
-				address: [...state.address, action.address]
+				address: [action.address]
 			})
 		case "ADD_CITY" :
 			return ({
-				city: [...state.city, action.city]
+				city: [action.city]
 			})
 		case "ADD_ZIPCODE" :
 			return ({
-				zipcode: [...state.zipcode, action.zipcode]
+				zipcode: [action.zipcode]
 			})
-		case "GET_SCHOOLDATA" :
-			return ({
-				schooldata: [...state.schooldata, action.schooldata]
-			})
-		default : return state;
+		default: return state;
 	}
 }
 
