@@ -27,8 +27,8 @@ const renderClouds = ({target}) => {
     .to(sky, 1500, {backgroundPositionX: 3599, ease: Power0.easeOut })
 }
 
-const changeRoutes = (router) => {
-  router.push("/results")
+const changeRoutes = (home) => {
+  home.router.push('/results/')
 }
 
 
@@ -58,7 +58,7 @@ const hideWelcome = (utils, app) => {
       .from(location, .75, {scale: .2, opacity:0, ease:  Elastic.easeOut.config(1, 1), y: 100, repeat:1, yoyo:true}, "start +=3")
       .fromTo(bus, 3, {left: 1500, ease:Power0.easeIn}, {left: -1300, ease:Power0.easeIn}, "start +=2.8")
       .addPause(4.7)
-      .to(buildings, 1, {opacity: 0, onComplete: ()=> changeRoutes(utils.options.props.router)}, "start +=4.5")
+      .to(buildings, 1, {opacity: 0, onComplete: ()=> changeRoutes(utils.options.props)}, "start +=4.5")
 
   })
 

@@ -74,16 +74,19 @@ const Results = React.createClass({
 		return (
 			<div className="resultPage">
 			  <div className="sky">
-			  	<div>
-				  	<label htmlFor="sortBy">Sort</label>
-				  	<select 
-				  		id="sortBy"
-				  		onChange={this.handleSortBy}
-				  	>
-				  		<option value="english">English Score</option>
-				  		<option value="math">Math Score</option>
-				  	</select>
-				  </div>
+			  	<div className="buttons">
+				  	<div className="sortByContainer">
+					  	<label htmlFor="sortBy">Sort</label>
+					  	<select 
+					  		id="sortBy"
+					  		onChange={this.handleSortBy}
+					  	>
+					  		<option value="english">English Score</option>
+					  		<option value="math">Math Score</option>
+					  	</select>
+					  </div>
+					  {this.state.count === 3 ? <button className='compare-button' onClick={this.handleRouter}>Compare</button> : null}
+					 </div>
 			  </div>
 			  <div className="boyResult">
 			  	<div className="spirte"></div>
@@ -92,7 +95,6 @@ const Results = React.createClass({
 			  <div className="results">
 					{displayResults}
 				</div>
-				{this.state.count === 3 ? <button className='compare-button' onClick={this.handleRouter}>Compare</button> : null}
 			</div>
 		)
 	}
