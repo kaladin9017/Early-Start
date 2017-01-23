@@ -31,7 +31,7 @@ ReactDOM.render(
         <Router history={browserHistory}>
         	<Route path='/' component={App}>
 	        	<IndexRoute components={Home} />
-	        	<Route path='/results' component={Age} />
+	        	<Route path='/results' component={Results} />
 	        	<Route path='/compare' component={Compare} />
         	</Route>
         </Router>
