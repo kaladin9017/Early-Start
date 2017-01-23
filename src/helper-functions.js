@@ -1,5 +1,4 @@
-
-
+//Function call to retrieve api data. 
 export function getState(zip) {
   let schoolGradeArr = []
 
