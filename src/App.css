@@ -13,6 +13,7 @@ body {
   position: fixed;
   z-index: 100000000;
 }
+
 .home {
   width: 100vw;
   height: 100vh;
@@ -57,7 +58,7 @@ body {
   to {background-position: -1282px}
 }
 
-
+/* MODAL 1: WELOCME CHALKBOARD */
 .welcome {
   background: url('../public/images/chalkboard.png') no-repeat;
   background-size: 100% 100%;
@@ -68,9 +69,37 @@ body {
   left: 30vw;
   transform: translate(50, 50);
   border: 1px solid blue;
-
 }
 
+.titleWelcome {
+  font: 50px 'Chalkduster';
+  color: white;
+  margin-left: 26%;
+  padding-top: 40px;
+}
+
+.earlyStart {
+  font: 20px 'Chalkduster';
+  color: white;
+  margin-left: 15%;
+  margin-right: 15%;
+  letter-spacing: 2px;
+  text-align: justify;
+}
+
+.start {
+  font: 20px 'Chalkduster';
+  color: white;
+  border: none;
+  background-color: transparent;
+  border-radius: 15px;
+  width: 20%;
+  border: 2px solid white
+}
+
+/**/
+
+/* MODAL 2: HOW OLD ARE YOU? */
 .age {
   width: 425px;
   height: 600px;
@@ -110,6 +139,8 @@ body {
   border-radius: 15px;
   width: 25%;
 }
+
+/* */
 
 .tree1 {
   background: url('../public/images/tree1.png') no-repeat;
