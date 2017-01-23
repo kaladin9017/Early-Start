@@ -33,37 +33,26 @@ const Location = React.createClass({
 		  Promise.resolve(getDistrict(this.props.users.zipcode))
 		  .then((temp)=> {
 		  	district = temp.data
-		    //this.setState({district: temp.data });
 		  })
-
 		  .then(()=> getSchoolGrade())
 		  .then((temp)=> {
 		  	grades = temp.data
-		    //this.setState({grades: temp.data });
 		  })
-
 		  .then(()=> getAttendance())
 		  .then((temp)=> {
 		  	attendance= temp.data
-		    //this.setState({attendance: temp.data });
 		  })
 
 		  .then(()=> getMathScores())
 		  .then((temp)=> {
 		  	math=temp.data
-		    //this.setState({math: temp.data });
 		  })
-
 		  .then(()=> getEnglishScores())
 		  .then((temp)=> {
 		  	english = temp.data
-		    //this.setState({english: temp.data });
 		  })
 		  .then(()=> {
-		  	// setTimeout(()=>{
-
 		  	return {district , math, english, attendance, grades}
-		  	// }, 2000)
 		  })
 		  .then((data)=>{
 		  	console.log(data)
@@ -103,12 +92,6 @@ const Location = React.createClass({
 
 });
 
-
-// export default connect(mapState, {getSchools})(Location);
 export default Location;
 
-//second prop is automatically dispatch.
-
-// if this.props.schools is undefined, initialstate for school reducer as false,,
-// if false, null, do the action or promise 
 
