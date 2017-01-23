@@ -25,7 +25,7 @@ const Location = React.createClass({
 		} else {
 
 			//this is for testing
-			this.props.router.push('/results/$query?zip+code')
+			this.props.router.push('/results/')
 		}
 
 		//send out ajax calls

@@ -28,7 +28,7 @@ const renderClouds = ({target}) => {
 }
 
 const changeRoutes = (router) => {
-  router.push("/results/$query?zip+code")
+  router.push("/results/")
 }
 
 
