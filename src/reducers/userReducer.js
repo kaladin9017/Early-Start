@@ -1,5 +1,5 @@
 const _defaultState = {
-	age: [],
+	age: "10-13",
 	address: [],
 	city: [],
 	zipcode: ["11201"],
@@ -7,11 +7,10 @@ const _defaultState = {
 }
 
 const userReducer = (state = _defaultState, action) => {
-	console.log('ACTIONS ZIPCODE:', action.zipcode)
 	switch(action.type){
 		case "ADD_AGE" :
 			return ({
-				age: [action.age]
+				age: action.age
 			})
 		case "ADD_ADDRESS" :
 			return ({

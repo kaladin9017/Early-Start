@@ -1,12 +1,15 @@
 @font-face {
   font-family: 'Chalkduster';
-  src:  url('../public/fonts/Chalkduster.ttf') format('ttf')}
+  src:  url('../public/fonts/Chalkduster.ttf') format('ttf')};
 
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(242, 250, 253) 
+}
+#root{
   background-color: rgb(242, 250, 253) 
 }
 
@@ -60,7 +63,8 @@ body {
 }
 
 .boyResult {
-  position: fixed;
+  /*position: fixed;*/
+  position: absolute;
   bottom: 0px;
   z-index:50;
 }
@@ -196,12 +200,16 @@ body {
 
 .resultPage h1 {
   color: blue;
-  font: 36px 'Chalkduster';
+  font-family:'Chewy';
+  font-size:  36px ;
   position: absolute;
   top: 5vh;
   left: 50vw;
-  width: 35vw;
   text-align: center;
+}
+
+#sortBy {
+  margin-top: 20vh;
 }
 
 .results {
@@ -258,7 +266,8 @@ body {
 }
 
 .result .schoolName{
-  font: 24px 'Chalkduster';
+  font-family:'Chewy';
+  font-size: 24px ; 
 }
 
 .result .skills{

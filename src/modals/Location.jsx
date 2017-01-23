@@ -18,11 +18,16 @@ const Location = React.createClass({
 	handleClick(e) {
 		e.preventDefault()
 
-		//this is for production 
-		this.props.parent.welcome.resume()
+		if(this.props.parent){
+			
+			//this is for production 
+			this.props.parent.welcome.resume()
+		} else {
 
-		//this is for testing
-		// this.props.router.push('/results')
+			//this is for testing
+			this.props.router.push('/results')
+		}
+
 
 		//send out ajax calls
 			let district = null;

@@ -19,7 +19,6 @@ const Age = React.createClass({
 			<div className="age" >
 				
 					<select 
-						value={this.state.ageRange} 
 						onChange={this.selectedAge}
 						className="ageForm"
 					>

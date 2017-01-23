@@ -76,7 +76,6 @@ export function getSchools(data) {
     }
 
   }
-  console.log("getSchools", finalObj)
   return {
     type: GET_SCHOOLS,
     payload: finalObj

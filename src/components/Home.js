@@ -15,7 +15,7 @@ import {getSchools} from '../actions/index'
 
 const mapState = state => ({
     schools: state.schools,
-    users: state.users
+    users: state.users, 
 });
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({addAddress, addCity, addZipcode, getSchools}, dispatch)
